@@ -36,6 +36,12 @@ export default function TodoPage() {
     setTodos(newList);
   }
 
+  const handleClear = () => {
+    setTodos((pre) => {
+      const result = [...pre].filter((todo) => todo.complete === false);
+      return result;
+    });
+  };
   return (
     <>
       <div>todo List</div>
@@ -57,6 +63,9 @@ export default function TodoPage() {
 
       <button className="btn btn-primary" onClick={handleNewTodo}>
         Add New Todo
+      </button>
+      <button className="btn btn-secondary" onClick={handleClear}>
+        clear finished
       </button>
     </>
   );
