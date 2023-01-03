@@ -73,9 +73,13 @@ function init() {
 
 // reset game
 function gameOver() {
+  $('body').addClass('game-over');
+  setTimeout(() => {
+    $('body').removeClass('game-over');
+  }, 200);
   playSound('wrong');
   $('.btn').off('click');
-  $('h1').text('press any key to restart');
+  $('h1').text('Game over, press any key to restart');
   started = false;
   currentLevel = 0;
   level = 0;
